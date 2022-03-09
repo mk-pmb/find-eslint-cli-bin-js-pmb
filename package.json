@@ -1,0 +1,33 @@
+{ "name": "find-eslint-cli-bin-js-pmb",
+  "version": "0.1.0",
+  "description": "Find the path of the JS file that would be invoked as the eslint CLI.",
+  "keywords": [],
+
+  "author": "M.K. (https://github.com/mk-pmb)",
+  "homepage": "https://github.com/mk-pmb/find-eslint-cli-bin-js-pmb/#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mk-pmb/find-eslint-cli-bin-js-pmb.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mk-pmb/find-eslint-cli-bin-js-pmb/issues"
+  },
+  "contributors": [],
+
+  "private": false, "license": "ISC",
+
+  "main": "findbin.js",
+  "scripts": { "test": "elp && nodemjs test/all.mjs" },
+  "directories": { "test": "test" },
+  "eslintConfig": { "extends": "nodejs-pmb" },
+
+  "dependencies": {},
+  "devDependencies": {
+    "eslint-config-nodejs-pmb": "^0.2.5",
+    "eslint-pretty-pmb": "^1.0.2",
+    "nodemjs": "^0.1.9"
+  },
+
+
+  "npm vs. BOM = Unexpected token": "-*- coding: UTF-8 -*-"
+}
