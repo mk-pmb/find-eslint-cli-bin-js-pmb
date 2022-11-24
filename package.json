@@ -17,15 +17,9 @@
   "private": false, "license": "ISC",
 
   "main": "findbin.js",
-  "scripts": { "test": "elp && nodemjs test/all.mjs" },
-  "directories": { "test": "test" },
-  "eslintConfig": { "extends": "nodejs-pmb" },
 
   "dependencies": {},
   "devDependencies": {
-    "eslint-config-nodejs-pmb": "^0.2.5",
-    "eslint-pretty-pmb": "^1.0.2",
-    "nodemjs": "^0.1.9"
   },
 
 
