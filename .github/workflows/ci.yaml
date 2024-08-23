@@ -15,16 +15,27 @@ jobs:
         strategy:
             matrix:
                 ver:
-                    -   { node:  8 }
-                    -   { node: 16 }
+                  - { node:  8 }
+                  - { node: 16 }
+                  - { node: 20 }
+
+        env:
+            nodejs_version: ${{ matrix.ver.node }}
 
         steps:
-            -   uses: actions/checkout@v2
-            -   name: 'Use Node.js ${{ matrix.ver.node }}.x'
-                uses: actions/setup-node@v1
-                with:
-                    node-version: ${{ matrix.ver.node }}.x
-            -   run: test/ci.sh
+          - uses: actions/checkout@v4
+          - uses: mk-pmb/github-ci-util-2405-pmb/act/install@experimental
+            with:
+                nodejs_version: ${{ matrix.ver.node }}
+
+          - run: ghciu npm install .
+
+          - run: ghciu ./.github/adjust_ci_for_ancient_nodejs.sh
+            if: 'fromJSON(matrix.ver.node) < 12'
+
+          - name: npm test
+            run: >
+                ghciu npm test &> >(ghciu-stepsumm-dump-textblock)
 
 
 ...

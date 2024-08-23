@@ -1,5 +1,5 @@
 { "name": "find-eslint-cli-bin-js-pmb",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Find the path of the JS file that would be invoked as the eslint CLI.",
   "keywords": [],
 
