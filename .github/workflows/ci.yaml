@@ -4,10 +4,13 @@
 # -*- coding: UTF-8, tab-width: 4 -*-
 ---
 
+name: '☂ CI tests'
+
 on:
     push:
         branches:
             -   '*'
+  workflow_dispatch:
 
 jobs:
     job_npm_test:
@@ -18,12 +21,13 @@ jobs:
                   - { node:  8 }
                   - { node: 16 }
                   - { node: 20 }
+                  - { node: 24 }
 
         env:
             nodejs_version: ${{ matrix.ver.node }}
 
         steps:
-          - uses: actions/checkout@v4
+          - uses: actions/checkout@v6
           - uses: mk-pmb/github-ci-util-2405-pmb/act/install@experimental
             with:
                 nodejs_version: ${{ matrix.ver.node }}
@@ -34,8 +38,7 @@ jobs:
             if: 'fromJSON(matrix.ver.node) < 12'
 
           - name: npm test
-            run: >
-                ghciu npm test &> >(ghciu-stepsumm-dump-textblock)
+            run: ghciu npm test
 
 
 ...
